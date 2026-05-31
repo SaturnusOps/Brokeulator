@@ -24,8 +24,8 @@ public class main {
             }
             i ++;
         }
-        float Allregulardeposit = regulardeposit * time;
-        float profit = Value - Allregulardeposit;
+        float Allregulardeposit = regulardeposit * totalMonths;
+        float profit = Value;
         System.out.print("\nEinmaligezahlung:" + intdeposit);
         System.out.print("\nMonatlichezahlungen:" + Allregulardeposit);
         System.out.print("\nProfite:" + profit );
