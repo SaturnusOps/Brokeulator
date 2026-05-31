@@ -9,7 +9,7 @@ public class main {
         System.out.print("Monatliche Zahlungen:");
         int regulardeposit = scanner.nextInt();
         System.out.print("Monatliche Zinsrate:");
-        float rate = scanner.nextFloat();
+        float rate = scanner.nextFloat() / 100;
         System.out.print("länge des investment:");
         float time = scanner.nextFloat();
 
