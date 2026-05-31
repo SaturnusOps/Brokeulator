@@ -17,7 +17,7 @@ public class main {
         int i = 0;
         float Value = intdeposit + regulardeposit;
         while ( i <= totalMonths) {
-            Value = (Value + regulardeposit) * (1 + rate);
+            Value = Value * (1 + rate) + regulardeposit;
             if ( i % 12 == 0){
                 int jahr = i / 12;
                 System.out.println("Jahr " + jahr + ": " + String.format("%.2f", Value) + "€");
