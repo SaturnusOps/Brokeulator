@@ -8,18 +8,20 @@ public class main {
         int intdeposit = scanner.nextInt();
         System.out.print("Monatliche Zahlungen:");
         int regulardeposit = scanner.nextInt();
+        System.out.print("Monatliche Zinsrate:");
+        float rate = scanner.nextFloat();
         System.out.print("länge des investment:");
         float time = scanner.nextFloat();
-        System.out.print("Zinsrate:");
-        float rate = scanner.nextFloat();
 
-        time = time * 12;
+        int totalMonths = (int) (time * 12);
         int i = 0;
         float Value = intdeposit + regulardeposit;
-        while ( i <= time) {
-            System.out.print("\nJahr" + i);
-            System.out.print("\n" + Value);
-            Value = (Value + regulardeposit) * rate;
+        while ( i <= totalMonths) {
+            Value = (Value + regulardeposit) * (1 + rate);
+            if ( i % 12 == 0){
+                int jahr = i / 12;
+                System.out.println("Jahr " + jahr + ": " + String.format("%.2f", Value) + "€");
+            }
             i ++;
         }
         float Allregulardeposit = regulardeposit * time;
