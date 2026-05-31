@@ -17,7 +17,7 @@ public class main {
         int i = 0;
         float Value = intdeposit + regulardeposit;
         while ( i <= totalMonths) {
-            Value = Value * (1 + rate) + regulardeposit;
+            Value = (Value + regulardeposit) * (1 + rate);
             if ( i % 12 == 0){
                 int jahr = i / 12;
                 System.out.println("Jahr " + jahr + ": " + String.format("%.2f", Value) + "€");
@@ -25,9 +25,13 @@ public class main {
             i ++;
         }
         float Allregulardeposit = regulardeposit * totalMonths;
-        float profit = Value;
-        System.out.print("\nEinmaligezahlung:" + intdeposit);
-        System.out.print("\nMonatlichezahlungen:" + Allregulardeposit);
-        System.out.print("\nProfite:" + profit );
+        float totalReturn = Value;
+        float totalInterest = Value - ( intdeposit + Allregulardeposit);
+        System.out.print("\n--- ZUSAMMENFASSUNG ---");
+        System.out.print("\nEinmaligezahlung: " + intdeposit + " €");
+        System.out.print("\nMonatlichezahlungen gesamt: " + Allregulardeposit + " €");
+        System.out.print("\n-----------------------");
+        System.out.print("\nReine Zinsen: " + String.format("%.2f", totalInterest) + " €");
+        System.out.print("\nGesammtwert:     " + String.format("%.2f", totalReturn) + " €");
     }
 }
