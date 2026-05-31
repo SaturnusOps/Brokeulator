@@ -13,9 +13,9 @@ public class main {
         System.out.print("Monatliche Zahlungen:");
         int regulardeposit = scanner.nextInt();
         System.out.print("länge des investment:");
-        float time = scanner.nextInt();
+        float time = scanner.nextFloat();
         System.out.print("Zinsrate:");
-        float rate = scanner.nextInt();
+        float rate = scanner.nextFloat();
 
         switch(Caltime) {
             case "jährlich":
