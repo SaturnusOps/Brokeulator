@@ -1,12 +1,8 @@
 import java.util.Scanner;
-import java.lang.Math;
 
 public class main {
     public static void main(String[] args) {
-        //Zeitraum für die Berechnung bestimmen
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Möchtest du deine Jährlich / Quartalsweise / Monatlich / Täglich gewinne berechnen:");
-        String Caltime = scanner.nextLine().toLowerCase();
         // Rechenwerte bestimmen
         System.out.print("Einmaligezahlung:");
         int intdeposit = scanner.nextInt();
@@ -17,20 +13,19 @@ public class main {
         System.out.print("Zinsrate:");
         float rate = scanner.nextFloat();
 
-        switch(Caltime) {
-            case "jährlich":
-                double factor = Math.pow(1 +rate, time);
-                double totalReturn = (intdeposit * factor) + (regulardeposit * (factor - 1) / rate);
-                break;
-            case "quartalsweise":
-                System.out.print("Quartalsweise gewinne");
-                break;
-            case "monatlich":
-                System.out.print("Monatlich gewinne");
-                break;
-            case "täglich":
-                System.out.print("Täglich gewinne");
-                break;
+        time = time * 12;
+        int i = 0;
+        float Value = intdeposit + regulardeposit;
+        while ( i <= time) {
+            System.out.print("\nJahr" + i);
+            System.out.print("\n" + Value);
+            Value = (Value + regulardeposit) * rate;
+            i ++;
         }
+        float Allregulardeposit = regulardeposit * time;
+        float profit = Value - Allregulardeposit;
+        System.out.print("\nEinmaligezahlung:" + intdeposit);
+        System.out.print("\nMonatlichezahlungen:" + Allregulardeposit);
+        System.out.print("\nProfite:" + profit );
     }
 }
